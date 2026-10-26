@@ -82,3 +82,52 @@ navLinks.forEach(function (link){
 
     });
 });
+
+
+// ================= SEARCH GAMES =================
+
+const searchInput = document.getElementById("searchGame");
+const gameCards = document.querySelectorAll(".game-card");
+
+searchInput.addEventListener("input", function () {
+
+    const searchText = searchInput.value.toLowerCase();
+
+    gameCards.forEach(function (card) {
+
+        const gameName = card.querySelector("h3").textContent.toLowerCase();
+
+        if (gameName.includes(searchText)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+});
+
+
+// ================= PLAY BUTTON =================
+
+const playButtons = document.querySelectorAll(".play-btn");
+
+playButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const gameName = button
+            .closest(".game-card")
+            .querySelector("h3")
+            .textContent;
+
+        alert("🎮 Starting " + gameName + "...");
+    });
+
+});
+      
+
+
+
+
+
